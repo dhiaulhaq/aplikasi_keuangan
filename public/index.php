@@ -1,3 +1,10 @@
+<?php
+require_once("../includes/database.php");
+require_once("../includes/user.php");
+require_once("../includes/helper.php");
+require_once("../includes/session.php");
+?>
+
 <!doctype html>
 <html lang="en">
   
@@ -8,6 +15,7 @@
     <?php require_once("layout/nav.php")?>
 
     <main role="main" class="container">
+    <?php echo cetak_pesan($pesan); ?>
 
       <div class="starter-template">
         <h1>Bootstrap starter template</h1>
