@@ -1,13 +1,13 @@
 <?php
 require_once('database.php');
 
-class Kategori{
-    protected static $namatable = "kategori";
+class Pengeluaran{
+    protected static $namatable = "pengeluaran";
     public $id;
-    public $code;
-    public $kategori_type;
-    public $nama;
-    public $nilaikategori = "";
+    public $user_id;
+    public $rupiah_keluar;
+    public $tanggal_keluar;
+    public $kategori_pengeluaran;
 
     //Call query from DB
     public static function cari_dgn_sql($sql =""){
@@ -26,23 +26,24 @@ class Kategori{
         return !empty($result_array)?array_shift($result_array):false;
     }
 
-    //Kategori Function
+    //Pengeluaran Function
     public function create(){
         global $database;
         $sql = " INSERT INTO " . self::$namatable. " (";
-        $sql.= "code, kategori_type, nama) VALUES ('$this->code', '$this->kategori_type', '$this->nama')";
+        $sql.= "user_id, kategori_pengeluaran, tanggal_keluar, rupiah_keluar) ";
+        $sql.= "VALUES ('$this->user_id', '$this->kategori_pengeluaran', '$this->tanggal_keluar', '$this->rupiah_keluar')";
         if($database->query($sql)){
             return true;
         } else{
             return false;
         }
     }
-
+    
     //Update
     public function update(){
         global $database;
         $sql = "UPDATE ".self::$namatable. " SET ";
-        $sql.= "code='" . $this->code . "', nama='" . $this->nama . "', kategori_type='" . $this->kategori_type . "'";
+        $sql.= "rupiah_keluar='" . $this->rupiah_keluar . "', tanggal_keluar='" . $this->tanggal_keluar . "', kategori_pengeluaran='" . $this->kategori_pengeluaran . "'";
         $sql.= " WHERE id=" . $this->id;
         $database->query($sql);
         return ($database->affected_rows() == 1)?true:false;
@@ -74,11 +75,6 @@ class Kategori{
         $result_set = $database->query($sql);
         $row = $database->fetch_array($result_set);
         return array_shift($row);
-    }
-
-    public function kategorikeuangan(){
-        $result_array = self::cari_dgn_sql("SELECT id, nama FROM " . self::$namatable . " WHERE kategori_type = '$this->nilaikategori'");
-        return $result_array;
     }
 }
 ?>

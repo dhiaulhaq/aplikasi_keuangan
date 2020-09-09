@@ -25,8 +25,8 @@ if(isset($session)){
             <a class="nav-link dropdown-toggle" href="/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-coins"></i> Keuangan</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="/pages/listkategori.php"><i class="fas fa-ellipsis-h"></i> Kategori</a>
-              <a class="dropdown-item" href="#"><i class="fab fa-get-pocket"></i> Pemasukan</a>
-              <a class="dropdown-item" href="#"><i class="fas fa-arrow-circle-right"></i> Pengeluaran</a>
+              <a class="dropdown-item" href="/pages/listpemasukan.php"><i class="fab fa-get-pocket"></i> Pemasukan</a>
+              <a class="dropdown-item" href="/pages/listpengeluaran.php"><i class="fas fa-arrow-circle-right"></i> Pengeluaran</a>
               <a class="dropdown-item" href="#"><i class="fas fa-file-invoice"></i> Balance</a>
             </div>
           </li>
@@ -44,7 +44,7 @@ if(isset($session)){
 
           <?php if($logged){ ?>
           <li class="nav-item">
-            <a class="nav-link">Hi <?php echo $nama; ?></a>
+            <a class="nav-link" href="#">Hi <?php echo $nama; ?></a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/pages/logout.php">Logout</a>
