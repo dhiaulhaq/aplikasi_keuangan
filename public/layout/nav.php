@@ -27,7 +27,7 @@ if(isset($session)){
               <a class="dropdown-item" href="/pages/listkategori.php"><i class="fas fa-ellipsis-h"></i> Kategori</a>
               <a class="dropdown-item" href="/pages/listpemasukan.php"><i class="fab fa-get-pocket"></i> Pemasukan</a>
               <a class="dropdown-item" href="/pages/listpengeluaran.php"><i class="fas fa-arrow-circle-right"></i> Pengeluaran</a>
-              <a class="dropdown-item" href="#"><i class="fas fa-file-invoice"></i> Balance</a>
+              <a class="dropdown-item" href="/pages/balancereport.php"><i class="fas fa-file-invoice"></i> Balance</a>
             </div>
           </li>
         </ul>
