@@ -41,7 +41,7 @@ class Session{
     private function cek_nama(){
         if(isset($_SESSION['nama'])){
             $this->nama = $_SESSION['nama'];
-            unset($_SESSION['nama']);
+            // unset($_SESSION['nama']);
         }else{
             $this->nama ="";
         }

@@ -18,8 +18,10 @@ if(isset($session)){
           <li class="nav-item active">
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
+
+          <?php if($logged) {?>
           <li class="nav-item">
-            <a class="nav-link" href="#">User</a>
+            <a class="nav-link" href="/pages/listuser.php">User</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="/" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-coins"></i> Keuangan</a>
@@ -30,6 +32,8 @@ if(isset($session)){
               <a class="dropdown-item" href="/pages/balancereport.php"><i class="fas fa-file-invoice"></i> Balance</a>
             </div>
           </li>
+          <?php } ?>
+          
         </ul>
         <ul class="navbar-nav">
 

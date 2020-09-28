@@ -3,6 +3,15 @@ require_once("../includes/database.php");
 require_once("../includes/user.php");
 require_once("../includes/helper.php");
 require_once("../includes/session.php");
+
+$logged = false;
+$nama = "";
+
+if(isset($session)){
+  $logged = $session->user_loggedin();
+  $nama = $session->nama();
+}
+
 ?>
 
 <!doctype html>
@@ -17,10 +26,17 @@ require_once("../includes/session.php");
     <main role="main" class="container">
     <?php echo cetak_pesan($pesan); ?>
 
+    <?php if(!$logged){ ?>
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+        <h1>Kalkuleit - Aplikasi Keuangan</h1>
+        <p class="lead">Anda tidak terdaftar sebagai pengguna, silahkan Register atau Login untuk dapat menggunakan aplikasi.</p>
       </div>
+    <?php }else{ ?>
+      <div class="starter-template">
+        <h1>Kalkuleit - Aplikasi Keuangan</h1>
+        <p class="lead">Anda terdaftar sebagai: <?php echo $nama; ?>, silahkan akses menu Keuangan untuk menggunakan aplikasi.</p>
+      </div>
+    <?php } ?>
 
     </main><!-- /.container -->
 
